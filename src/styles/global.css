@@ -1,0 +1,27 @@
+:root {
+    --primary-color-black: #0d0713;
+    --primary-color-dark: #9FB3DF;
+    --secondary-color: #9EC6F3;
+    --secondary-light: #BDDDE4;
+    --secondary-accent: #FFF1D5;
+
+    --background-color: #ffffff;
+    --text-color: rgba(243, 244, 246, 1);
+
+    --background-selected-color-menu-button: #061c33;
+    --background-color-menu-button: #a79f9f;
+}
+
+html.dark {
+    --primary-color-black: rgb(11, 23, 52);
+    --primary-color-dark: rgba(156, 163, 175, 1);
+    --secondary-color: #872341;
+    --secondary-light: #BE3144;
+    --secondary-accent: #E17564;
+
+    --background-color: #000000;
+    --text-color: rgba(243, 244, 246, 1);
+
+    --background-selected-color-menu-button: rgb(125, 99, 204);
+    --background-color-menu-button: rgb(65, 74, 94);
+}

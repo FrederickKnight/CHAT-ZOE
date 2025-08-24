@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+if(Astro.locals.user !== null){
+    return Astro.redirect("/")
+}
+const url = new URL(Astro.request.url);
+const errorMessage = url.searchParams.get("error");
+---
+
+<Layout>
+    <div>
+        <h1>Sign in</h1>
+        <form method="post" action="/api/login">
+            <label for="username">Username</label>
+            <input id="username" name="username" />
+            <label for="password">Password</label>
+            <input id="password" name="password" />
+            <button>Continue</button>
+        </form>
+        {errorMessage && <p class="error-message">{errorMessage}</p>}
+    </div>
+</Layout>
+<style>
+    .error-message {
+        color: red;
+        margin-bottom: 10px;
+    }
+</style>
