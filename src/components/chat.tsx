@@ -18,7 +18,7 @@ export default function ChatTest(){
     const [messages,setMessages] = useState<Message[]>([])
     const [message,setMessage] = useState("")
     const room = "room_1"
-    const URL_PATH = "https://api-chat-teez.onrender.com"
+    const URL_PATH = import.meta.env.PUBLIC_URL_HOST;
 
     useEffect(() => {
         const userJson =  Cookies.get("user")
