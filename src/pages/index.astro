@@ -1,8 +1,22 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import ChatTest from '@components/chat'
+import RoomSelector from '@components/chat/room-selector';
+import "@styles/main_menu.css"
 ---
 <Layout>
-    <h1>Index de la pagina </h1>
-    <ChatTest client:visible/>
+    <div class="container">
+        <div class="menu-header">
+            <h1>ZOE</h1>
+            <h3>El sol siempre vuelve a salir</h3>
+        </div>
+        <RoomSelector className="menu-row menu-main" client:visible/>
+        <div class="menu-row menu-secondary">
+            <div>
+                El Sendero de la Vida
+            </div>
+            <div>
+                Nuestro Match
+            </div>
+        </div>
+    </div>
 </Layout>

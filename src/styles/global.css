@@ -1,27 +1,76 @@
 :root {
-    --primary-color-black: #0d0713;
-    --primary-color-dark: #9FB3DF;
-    --secondary-color: #9EC6F3;
-    --secondary-light: #BDDDE4;
-    --secondary-accent: #FFF1D5;
-
-    --background-color: #ffffff;
-    --text-color: rgba(243, 244, 246, 1);
-
-    --background-selected-color-menu-button: #061c33;
-    --background-color-menu-button: #a79f9f;
+    --color-primary: #25FBEF;
+    --color--primary-accent: #1489FF;
+    --color-secondary: #74B513;
+    --color-secondary-accent: #FFD60C;
+    --color-error: #FF4E3A;
 }
 
 html.dark {
-    --primary-color-black: rgb(11, 23, 52);
-    --primary-color-dark: rgba(156, 163, 175, 1);
-    --secondary-color: #872341;
-    --secondary-light: #BE3144;
-    --secondary-accent: #E17564;
+    --color-primary: #12A0B4;
+    --color--primary-accent: #063A7B;
+    --color-secondary: #335705;
+    --color-secondary-accent: #B78403;
+    --color-error: #7B1412;
+}
 
-    --background-color: #000000;
-    --text-color: rgba(243, 244, 246, 1);
+/* Base: mobile */
+*{
+  box-sizing: border-box;
+  margin: 0;
 
-    --background-selected-color-menu-button: rgb(125, 99, 204);
-    --background-color-menu-button: rgb(65, 74, 94);
+}
+
+body {
+  font-size: 16px;
+
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: flex-start; 
+  text-align: center;
+
+  background-image: url("/bg/cloud&sky.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  width: 100%;
+
+}
+
+footer {
+  padding: 1rem;
+  width: 100%;
+
+}
+
+
+/* Tablet */
+@media (min-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1280px) {
+  body {
+    font-size: 20px;
+  }
 }

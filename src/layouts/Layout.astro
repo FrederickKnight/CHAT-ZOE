@@ -1,6 +1,6 @@
 ---
+import ProfileNav from "@components/profile-nav.astro"
 import "@styles/global.css"
-import AsideNav from "@components/aside-nav.astro"
 ---
 
 <!doctype html>
@@ -8,12 +8,20 @@ import AsideNav from "@components/aside-nav.astro"
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Chat Index</title>
+		<title>ZOE</title>
 	</head>
 	<body>
-		<AsideNav />
 		<main>
 			<slot />
 		</main>
+		<footer>
+			<ProfileNav />
+			<div>
+				ZOE icono
+			</div>
+			<div>
+				Ajustes
+			</div>
+		</footer>
 	</body>
 </html>

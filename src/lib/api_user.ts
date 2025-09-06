@@ -6,7 +6,7 @@ import type {User} from "@lib/cookie_session"
 
 export async function registerUser(context:APIContext,username:string,password:string): Promise<User|null> {
 
-    const response = await fetch(API_URL,{
+    const response = await fetch(API_URL+"user-zoe",{
 		method:"POST",
 		headers:{
 			"Content-Type":"application/json",

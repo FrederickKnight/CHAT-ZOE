@@ -1,0 +1,27 @@
+    .container{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-header{
+        color: white;
+    }
+
+    .menu-row{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .menu-main{
+        min-height: 40vh;
+        text-align: center;
+    }
+
+    .menu-secondary{
+        justify-content: space-between;
+    }
