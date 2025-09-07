@@ -6,15 +6,17 @@ export function useGetListRooms(user: User | null) {
     const [rooms, setRooms] = useState<RoomUser[]>([])
 
     const fetchRooms = async () => {
+        console.log(user)
         try {
             if (user) {
-                const response = await fetch(URL_PATH + "/room-user/?filter_field=id_user&filter_value=" + user.id + "&relations=true")
+                const response = await fetch(URL_PATH + "room-user/?filter_field=id_user&filter_value=" + user.id + "&relations=true")
                 const json = await response.json()
                 setRooms(json.response)
             }
         }
         catch (error) {
             console.log("error in fetch room")
+            console.log(String(error))
             setRooms([])
         }
     }

@@ -8,7 +8,7 @@ export function useGetRoomUser(uuid: string) {
     const fetchRoomUser = async (uuid: string) => {
         try{
             if (uuid){
-                const room_response = await fetch(URL_PATH + "/room/?filter_field=uuid&filter_value=" + uuid)
+                const room_response = await fetch(URL_PATH + "room/?filter_field=uuid&filter_value=" + uuid)
                 const room_json: Room = await room_response.json().then(data => data.response[0])
                 
                 if (!room_json) {
@@ -17,7 +17,7 @@ export function useGetRoomUser(uuid: string) {
                     return;
                 }
 
-                const room_user_response = await fetch(URL_PATH + "/room-user/?relations=true&filter_field=id_room&filter_value=" + room_json.id)
+                const room_user_response = await fetch(URL_PATH + "room-user/?relations=true&filter_field=id_room&filter_value=" + room_json.id)
                 const room_user_json: RoomUser = await room_user_response.json().then(data => data.response[0])
                 
                 if (!room_user_json) {

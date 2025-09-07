@@ -16,6 +16,8 @@ export default function RoomSelector(props: Props) {
     const [user, refetchUser] = useGetUser();
     const [rooms, refetchRooms] = useGetListRooms(user);
 
+    console.log(rooms)
+
     return (
         <div className={className ? `${className}` : ""}>
             <div>

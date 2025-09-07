@@ -37,7 +37,7 @@ export default function ChatRoom(props: Props) {
             const container = containerRef.current;
             let scrollHeightBefore = container?.scrollHeight;
 
-            const response = await fetch(URL_API + "/message/?filter_field=id_room&filter_value="+roomUser?.room?.id+"&relations=true&limit=20&page="+currentPage+"&order=desc")
+            const response = await fetch(URL_API + "message/?filter_field=id_room&filter_value="+roomUser?.room?.id+"&relations=true&limit=20&page="+currentPage+"&order=desc")
 
             if (response.status === 204){
                 return;
