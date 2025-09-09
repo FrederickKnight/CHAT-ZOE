@@ -2,6 +2,9 @@
 import Layout from '@layouts/Layout.astro';
 import RoomSelector from '@components/chat/room-selector';
 import "@styles/main_menu.css"
+
+const data = Astro.locals
+const isLogin = !!data.user?.id;
 ---
 <Layout>
     <div class="container">

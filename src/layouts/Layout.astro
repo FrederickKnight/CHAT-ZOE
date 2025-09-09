@@ -1,5 +1,8 @@
 ---
-import ProfileNav from "@components/profile-nav.astro"
+import ProfileButton from "@components/profile-button.astro"
+
+import IconSetting from "@components/icons/icon-settings.astro"
+import IconHearth from "@components/icons/icon-hearth.astro"
 import "@styles/global.css"
 ---
 
@@ -15,12 +18,12 @@ import "@styles/global.css"
 			<slot />
 		</main>
 		<footer>
-			<ProfileNav />
+			<ProfileButton />
 			<div>
-				ZOE icono
+				<IconHearth />
 			</div>
 			<div>
-				Ajustes
+				<IconSetting />
 			</div>
 		</footer>
 	</body>
