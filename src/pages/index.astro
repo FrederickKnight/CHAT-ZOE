@@ -5,6 +5,9 @@ import "@styles/main_menu.css"
 
 const data = Astro.locals
 const isLogin = !!data.user?.id;
+if (!isLogin){
+    return Astro.redirect("/profile")
+}
 ---
 <Layout>
     <div class="container">

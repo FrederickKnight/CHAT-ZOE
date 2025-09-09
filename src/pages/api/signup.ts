@@ -13,14 +13,21 @@ export async function POST(context:APIContext) : Promise<Response>{
 		username.length > 31
 	) {
 		return new Response("Invalid username", {
-			status: 400
+			status: 303,
+			headers:{
+				Location:"/profile/signup?error=Invalid username",
+			}
 		});
 	}
 
     const password = formdata.get("password") as string;
     if (typeof password !== "string" || password.length < 6 || password.length > 255) {
-		return context.redirect(`/signup?error=Invalid password`);
-
+		return new Response("Invalid Password",{
+			status:303,
+			headers:{
+				Location:"/profile/signup?error=Invalid password",
+			}
+		})
 	}
 
     const user = await registerUser(context,username,password)
@@ -29,8 +36,19 @@ export async function POST(context:APIContext) : Promise<Response>{
 		const session_token = await generateSessionToken();
 		const session = await createSession(session_token,user.id);
 		setSessionTokenCookie(context,session_token,session.expiresAt);
-		return context.redirect("/")
+
+		return new Response(null,{
+			status:303,
+			headers:{
+				Location:"/"
+			}
+		})
 	}
 
-	return context.redirect(`/signup?error=Username is already taken`);
+	return new Response("Username is already taken",{
+		status:303,
+		headers: {
+			Location:"/profile/signup?error=Username is already taken"
+		}
+	})
 }

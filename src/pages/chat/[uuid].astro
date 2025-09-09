@@ -2,6 +2,12 @@
 import ChatLayout from "@layouts/ChatLayout.astro";
 import ChatRoom from "@components/chat/chat-room";
 
+const data = Astro.locals
+const isLogin = !!data.user?.id;
+if (!isLogin){
+    return Astro.redirect("/profile")
+}
+
 const {uuid} = Astro.params;
 ---
 
