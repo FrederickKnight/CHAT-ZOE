@@ -4,12 +4,12 @@ import { useGetUser } from "@hooks/useGetUser";
 import { useState, useEffect, useRef } from "react";
 
 import MessageBubble from "@components/chat/chat-message-bubble";
+import ZoeHeader from "./chat-zoe-header";
 
 import { io, Socket } from "socket.io-client";
 let socket: Socket;
 
 import "@styles/chat-window.css"
-import ZoeHeader from "./chat-zoe-header";
 
 export interface Props {
     uuid: string;
@@ -145,8 +145,17 @@ export default function ChatRoom(props: Props) {
             </div>
 
             <div className="chat-room_footer">
-                <input value={message} onChange={e => setMessage(e.target.value)} placeholder="Mensaje"/>
-                <button onClick={sendMessage}>Enviar</button>
+                <input type="text" 
+                value={message} 
+                onChange={e => setMessage(e.target.value)} 
+                placeholder="Mensaje"
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") sendMessage();
+                }}
+                />
+                <div onClick={sendMessage}>
+                    <img src="/icons/send.svg" alt="Enviar" />
+                </div>
             </div>
         </div>
     )

@@ -12,32 +12,34 @@ export default function ZoeHeader(props:Props){
 
     return (
         <div className="header-zoe">
-            <a href="/">
-                ==d
-            </a>
-            <div className="container-zoe">
-                <div className="icon-zoe">
-                    <img src="\bg\zoe_chat.webp" alt="zoe image" />
+            <div className="container-arrow-zoe">
+                <a href="/">
+                    <img src="/icons/arrow-left.svg" alt="<--" />
+                </a>
+                <div className="container-zoe">
+                    <div className="icon-zoe">
+                        <img src="\bg\zoe_chat.webp" alt="zoe image" />
+                    </div>
+                    <span className="zoe-name">
+                        {zoe.nickname ?
+                        (
+                            <>
+                                {zoe.nickname}
+                            </>
+                        )
+                        :
+                        (
+                            <>
+                                {zoe.name}
+                            </>
+                        )
+                        }
+                        ❤️
+                    </span>
                 </div>
-                <span className="zoe-name">
-                    {zoe.nickname ?
-                    (
-                        <>
-                            {zoe.nickname}
-                        </>
-                    )
-                    :
-                    (
-                        <>
-                            {zoe.name}
-                        </>
-                    )
-                    }
-                    ❤️
-                </span>
             </div>
             <a href="/">
-                ...
+                <img src="/icons/dots.svg" alt="..." />
             </a>
         </div>
     )

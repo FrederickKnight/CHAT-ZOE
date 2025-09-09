@@ -14,5 +14,5 @@ export const POST: APIRoute = async (context) => {
 	await invalidateSession(session.id)
 	deleteSessionTokenCookie(context)
 	
-	return context.redirect("/login", 302);
+	return context.redirect("/profile/login", 302);
 };
