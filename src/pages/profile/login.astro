@@ -6,6 +6,12 @@ if(Astro.locals.user !== null){
 }
 const url = new URL(Astro.request.url);
 const errorMessage = url.searchParams.get("error");
+
+const data = Astro.locals
+const isLogin = !!data.user?.id;
+if (isLogin){
+    return Astro.redirect("/")
+}
 ---
 
 <Layout>

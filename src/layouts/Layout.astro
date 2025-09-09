@@ -1,8 +1,7 @@
 ---
-import ProfileButton from "@components/profile-button.astro"
-
 import IconSetting from "@components/icons/icon-settings.astro"
 import IconHearth from "@components/icons/icon-hearth.astro"
+import IconPerson from "@components/icons/icon-person.astro"
 import "@styles/global.css"
 ---
 
@@ -18,13 +17,34 @@ import "@styles/global.css"
 			<slot />
 		</main>
 		<footer>
-			<ProfileButton />
-			<div>
+			<div id="profile-button">
+				<IconPerson />
+			</div>
+			<div id="hearth-button">
 				<IconHearth />
 			</div>
-			<div>
+			<div id="setting-button">
 				<IconSetting />
 			</div>
 		</footer>
 	</body>
 </html>
+
+<script>
+	function handleClickHearth(){
+		window.location.href = "/"
+	}
+
+	function handleClickProfile(){
+        window.location.href = "/profile"
+    }
+	
+	document.addEventListener("DOMContentLoaded",() => {
+		const profileButton = document.getElementById("profile-button")
+		const hearthButton = document.getElementById("hearth-button")
+		const settingsButton = document.getElementById("setting-button")
+
+        if (profileButton) profileButton.addEventListener("click",handleClickProfile);
+		if (hearthButton) hearthButton.addEventListener("click",handleClickHearth);
+	})
+</script>

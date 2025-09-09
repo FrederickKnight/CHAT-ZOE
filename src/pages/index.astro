@@ -5,6 +5,9 @@ import "@styles/main_menu.css"
 
 const data = Astro.locals
 const isLogin = !!data.user?.id;
+if (!isLogin){
+    return Astro.redirect("/profile")
+}
 ---
 <Layout>
     <div class="container">
@@ -14,10 +17,10 @@ const isLogin = !!data.user?.id;
         </div>
         <RoomSelector className="menu-row menu-main" client:visible/>
         <div class="menu-row menu-secondary">
-            <div>
+            <div class="secondary-card left">
                 El Sendero de la Vida
             </div>
-            <div>
+            <div class="secondary-card right">
                 Nuestro Match
             </div>
         </div>

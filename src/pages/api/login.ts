@@ -13,7 +13,12 @@ export async function POST(context: APIContext): Promise<Response> {
 		username.length < 3 ||
 		username.length > 31
 	) {
-		return context.redirect(`/login?error=Invalid username`);
+		return new Response("",{
+			status:303,
+			headers:{
+				Location:"/profile/login?error=Invalid username"
+			}
+		})
     }
 	
 	const userValidated = await validateUser(context,username,password)
@@ -21,8 +26,19 @@ export async function POST(context: APIContext): Promise<Response> {
 		const session_token = await generateSessionToken();
 		const session = await createSession(session_token,userValidated.id);
 		setSessionTokenCookie(context,session_token,session.expiresAt);
-		return context.redirect("/");
+		
+		return new Response("",{
+			status:303,
+			headers:{
+				Location:"/"
+			}
+		})
 	}
 
-	return context.redirect(`/login?error=Invalid username or password`);
+	return new Response("",{
+		status:303,
+		headers:{
+			Location:"/profile/login?error=Invalid username or password"
+		}
+	})
 }
