@@ -1,22 +1,51 @@
-    .container{
-        width: 80vw;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+.container{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-    .menu-header{
-        color: white;
-    }
+.menu-header{
+    color: white;
+}
 
-    .menu-row{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
+.menu-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
-    .menu-main{
-        min-height: 40vh;
-        text-align: center;
-    }
+.menu-main{
+    min-height: 40vh;
+    text-align: center;
+}
+
+/* secondary cards */
+.secondary-card{
+    height: 60px;
+    width: 150px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    text-wrap: pretty;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.secondary-card.left{
+    justify-content: flex-start;
+    background-image: url("/bg/sky.webp");
+
+}
+.secondary-card.right{
+    justify-content: flex-end;
+    background-image: url("/bg/sky-city.webp");
+}

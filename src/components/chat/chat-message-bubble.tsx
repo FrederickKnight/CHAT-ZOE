@@ -1,6 +1,5 @@
 import "@styles/chat-window.css"
 import type { Message } from "@ctypes/room_types"
-import { useGetUser } from "@hooks/useGetUser"
 
 export interface Props {
     message:Message
@@ -8,8 +7,6 @@ export interface Props {
 
 export default function MessageBubble(props:Props){
     const {message} = props
-    const [user,refetchUser] = useGetUser()
-
     const sender_name = message.user ? message.user?.username : message.zoe?.name
 
     return (
