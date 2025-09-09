@@ -24,7 +24,6 @@ export async function POST(context:APIContext) : Promise<Response>{
 	}
 
     const user = await registerUser(context,username,password)
-	console.log(user)
 
 	if(user !== null){
 		const session_token = await generateSessionToken();

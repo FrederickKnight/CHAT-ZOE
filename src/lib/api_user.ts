@@ -44,7 +44,7 @@ export async function validateUser(context:APIContext,username:string,password:s
 	})
 
     const response_json = await response.json()
-    console.log(response_json)
+    
     if (response.status === 200 && response_json.response[0].username === username){
         
         const user:User = {

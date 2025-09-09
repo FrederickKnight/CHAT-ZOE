@@ -6,7 +6,7 @@ export function useGetListRooms(user: User | null) {
     const [rooms, setRooms] = useState<RoomUser[]>([])
 
     const fetchRooms = async () => {
-        console.log(user)
+        
         try {
             if (user) {
                 const response = await fetch(URL_PATH + "room-user/?filter_field=id_user&filter_value=" + user.id + "&relations=true")
