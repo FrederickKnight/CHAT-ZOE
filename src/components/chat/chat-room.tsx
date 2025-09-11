@@ -21,7 +21,7 @@ export default function ChatRoom(props: Props) {
     const URL_API = import.meta.env.PUBLIC_API_URL;
 
     const [user, refetchUser] = useGetUser()
-    const [roomUser,refetchRoomUser] = useGetRoomUser(uuid)
+    const [roomUser,refetchRoomUser] = useGetRoomUser(uuid, user)
 
     const [listMessages,setListMessages] = useState<Message[]>([]);
     const [message,setMessage] = useState("");
@@ -121,6 +121,8 @@ export default function ChatRoom(props: Props) {
     };
 
     return (
+        <>
+        {roomUser ? (
         <div className="chat-room_container">
             <div className="chat-room_header">
                 { roomUser?.zoe &&
@@ -158,6 +160,15 @@ export default function ChatRoom(props: Props) {
                 </div>
             </div>
         </div>
+        )
+        :
+        (
+            <div>
+                You are not in this room
+            </div>
+        )
+        }
+        </>
     )
 
 }

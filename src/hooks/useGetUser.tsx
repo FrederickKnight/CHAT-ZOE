@@ -8,7 +8,10 @@ export function useGetUser(){
 
     function refetchUser(){
         const userJson = Cookies.get("user")
-        if (userJson) setUser(JSON.parse(userJson))
+        if (userJson) {
+            setUser(JSON.parse(userJson))
+            console.log(userJson)
+        }
     }
 
     useEffect(() => {
