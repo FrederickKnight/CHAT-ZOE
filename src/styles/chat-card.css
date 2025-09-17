@@ -5,12 +5,12 @@
     justify-content: center;
     align-items: center;
 
-    color: white;
+    color: black;
     text-wrap: pretty;
 
     border-radius: 16px;
 
-    background-color: blue;
+    background-color: white;
 }
 
 .zoe-chat{
