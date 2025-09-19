@@ -20,9 +20,21 @@ if (!isLogin){
             <div class="secondary-card left">
                 El Sendero de la Vida
             </div>
-            <div class="secondary-card right">
+            <div id="match-button" class="secondary-card right">
                 Nuestro Match
             </div>
         </div>
     </div>
 </Layout>
+
+<script>
+    function handleClickMatch(){
+        window.location.href = "/zoe/match"
+    }
+
+    document.addEventListener("DOMContentLoaded",() => {
+        const matchButton = document.getElementById("match-button")
+
+        if (matchButton) matchButton.addEventListener("click",handleClickMatch)
+    })
+</script>
