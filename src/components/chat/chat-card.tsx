@@ -10,8 +10,6 @@ export interface Props{
 export default function ChatCard(props:Props){
     const {room} = props;
 
-    console.log(room.uuid)
-
     return (
         <a className="card-container zoe-chat"
         href={`/chat/${room.uuid}`}

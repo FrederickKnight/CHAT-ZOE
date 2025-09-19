@@ -56,7 +56,7 @@ export default function ChatRoom(props: Props) {
             });
         }
         catch(error){
-            console.log(error)
+            console.log(String(error))
         }
     };
 
