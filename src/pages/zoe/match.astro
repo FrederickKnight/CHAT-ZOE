@@ -1,0 +1,14 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MatchRatio from "@components/zoe/match-ratio"
+
+const data = Astro.locals
+const isLogin = !!data.user?.id;
+if (!isLogin){
+    return Astro.redirect("/profile")
+}
+---
+
+<Layout>
+    <MatchRatio client:visible/>
+</Layout>

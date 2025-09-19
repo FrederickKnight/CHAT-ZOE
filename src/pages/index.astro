@@ -17,12 +17,30 @@ if (!isLogin){
         </div>
         <RoomSelector className="menu-row menu-main" client:visible/>
         <div class="menu-row menu-secondary">
-            <div class="secondary-card left">
+            <div id="life-button" class="secondary-card left">
                 El Sendero de la Vida
             </div>
-            <div class="secondary-card right">
+            <div id="match-button" class="secondary-card right">
                 Nuestro Match
             </div>
         </div>
     </div>
 </Layout>
+
+<script>
+    function handleClickMatch(){
+        window.location.href = "/zoe/match"
+    }
+
+    function handleClickLife(){
+        window.location.href = "/zoe/life"
+    }
+
+    document.addEventListener("DOMContentLoaded",() => {
+        const matchButton = document.getElementById("match-button")
+        const lifeButton = document.getElementById("life-button")
+
+        if (matchButton) matchButton.addEventListener("click",handleClickMatch)
+        if (lifeButton) lifeButton.addEventListener("click",handleClickLife)
+    })
+</script>

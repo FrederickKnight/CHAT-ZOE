@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import type { Room, RoomUser } from "@ctypes/room_types";
+import type { Room, RoomUser, User } from "@ctypes/room_types";
 
-export function useGetRoomUser(uuid: string) {
+export function useGetRoomUser(uuid: string, user: User | null) {
     const URL_PATH = import.meta.env.PUBLIC_API_URL;
     const [roomUser, setRoomUser] = useState<RoomUser | undefined>(undefined)
 
@@ -26,6 +26,11 @@ export function useGetRoomUser(uuid: string) {
                     return;
                 }
                 
+                if (room_user_json.user?.id !== user?.id){
+                    setRoomUser(undefined)
+                    return;
+                }
+
                 setRoomUser(room_user_json)
             }
         }
@@ -37,7 +42,7 @@ export function useGetRoomUser(uuid: string) {
 
     useEffect(() => {
         fetchRoomUser(uuid)
-    }, [uuid])
+    }, [uuid,user])
 
     return [roomUser, fetchRoomUser] as const
 }

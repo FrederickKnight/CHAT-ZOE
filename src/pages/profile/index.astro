@@ -5,30 +5,24 @@ const isLogin = !!data.user?.id;
 ---
 
 <Layout>
-    <div>
-        {isLogin ? 
-            <div>
-                <div>
-                    {data.user?.username}
-                </div>
-            </div>
-            :
-            <div>
-                <div>
-                    Guest
-                </div>
-            </div>
-        }
-    </div>
-    <div>
+    <div class="container">
         {isLogin ?
-            <div>
+        (
+            <span>
+                {data.user?.username}
+            </span>
+            <div class="form-container">
                 <form method="post" action="/profile/logout">
                     <button type="submit">Log Out</button>
                 </form>
             </div>
-            :
-            <div>
+        )
+        :
+        (
+            <span>
+                Guest
+            </span>    
+            <div class="form-container">
                 <form method="post" action="/profile/login">
                     <button type="submit">Log In</button>
                 </form>
@@ -36,6 +30,7 @@ const isLogin = !!data.user?.id;
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
+        )
         }
     </div>
 </Layout>

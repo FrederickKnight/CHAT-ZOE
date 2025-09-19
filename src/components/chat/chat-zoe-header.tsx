@@ -9,6 +9,7 @@ export interface Props{
 
 export default function ZoeHeader(props:Props){
     const {zoe} = props;
+    const [menuOpen,setMenuOpen] = useState(false)
 
     return (
         <div className="header-zoe">
@@ -38,9 +39,17 @@ export default function ZoeHeader(props:Props){
                     </span>
                 </div>
             </div>
-            <a href="/">
+            <div className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
                 <img src="/icons/dots.svg" alt="..." />
-            </a>
+            </div>
+
+            {menuOpen &&
+                <div className="menu-options">
+                    <button onClick={() => alert("Proximamente")}>Afectometro</button>
+                    <button onClick={() => alert("Proximamente")}>Personalizar Fondo de Pantalla</button>
+                    <button onClick={() => alert("Proximamente")}>Reportar Problema</button>
+                </div>
+            }
         </div>
     )
 }
