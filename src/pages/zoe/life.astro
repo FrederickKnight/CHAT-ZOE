@@ -1,0 +1,15 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+const data = Astro.locals
+const isLogin = !!data.user?.id;
+if (!isLogin){
+    return Astro.redirect("/profile")
+}
+---
+
+<Layout>
+    <div>
+        Proximamente
+    </div>
+</Layout>
